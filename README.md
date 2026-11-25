@@ -107,7 +107,7 @@ As melhorias previstas incluem:
 - **Infraestrutura:** banco de dados na nuvem, autenticação e sincronização entre dispositivos.
 - **Relacionamentos:** vínculo entre propostas aprovadas e projetos.
 - **Documentos:** geração e exportação de propostas e relatórios em PDF.
-- **Financeiro:** controle de pagamentos, recebimentos, parcelas e valores pendentes.
+- **Financeiro:** controle de pagamentos, controles de pagamentos e status de assinatura.
 - **Dashboard:** indicadores financeiros mais completos.
 - **Automação:** testes automatizados e validações de integração.
 - **Monetização:** planos gratuitos e pagos, assinaturas e integração com provedores de pagamento.
