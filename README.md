@@ -1,59 +1,120 @@
 # FreelaFlow
 
-Plataforma de gerenciamento para freelancers: clientes, projetos, orçamentos e propostas em uma interface dark, responsiva e sem dependências externas.
+Plataforma de gerenciamento para freelancers, desenvolvida para organizar clientes, projetos, orçamentos e propostas comerciais em uma interface moderna, responsiva e intuitiva.
 
 ## Problema que resolve
-Freelancers costumam controlar clientes, prazos e valores em planilhas, mensagens e anotações soltas. O FreelaFlow reúne tudo em um só painel e ajuda a precificar e formalizar propostas.
+
+Freelancers frequentemente precisam controlar clientes, prazos, valores e propostas utilizando planilhas, mensagens e anotações separadas.
+
+O FreelaFlow reúne essas informações em um único painel, facilitando a organização dos trabalhos, o acompanhamento dos projetos e a elaboração de orçamentos.
 
 ## Funcionalidades
-- **Painel:** total de clientes, projetos ativos, propostas pendentes, faturamento previsto (projetos em Planejamento + Em andamento), gráfico mensal (valor dos projetos por mês de prazo, exceto cancelados) e atividades recentes.
-- **Clientes:** cadastrar, editar, excluir, pesquisar e ver projetos/propostas associados.
-- **Projetos:** CRUD com cliente, valor, prazo e status (Planejamento, Em andamento, Concluído, Cancelado) e filtro por status.
-- **Calculadora de orçamento:** `preço = (horas × valor/hora + custos adicionais) × (1 + margem/100)`, com opção de transformar o resultado em proposta.
-- **Propostas:** serviços e valores, validade, status (Pendente, Aprovada, Recusada), visualização e impressão.
-- **Persistência:** tudo salvo no LocalStorage. Os dados de exemplo vêm marcados como "exemplo" e podem ser removidos em *Ajustes*.
-- Exportação de dados em arquivo JSON para backup.
-- Importação de backups em JSON para recuperação dos dados.
 
-## Tecnologias
-HTML5, CSS3 e JavaScript puro (Vanilla JS), LocalStorage e ícones/gráfico em SVG inline. Nenhum framework ou biblioteca externa.
+- **Dashboard:** indicadores de clientes, projetos ativos, propostas pendentes, faturamento previsto, gráfico financeiro mensal e atividades recentes.
+- **Clientes:** cadastro, edição, exclusão, pesquisa e visualização de projetos e propostas associados.
+- **Projetos:** gerenciamento de projetos, com cliente vinculado, valor, prazo e status.
+- **Calculadora de orçamento:** cálculo de preços considerando horas trabalhadas, valor por hora, custos adicionais e margem de lucro.
+- **Propostas comerciais:** cadastro de serviços, valores, validade e status, com visualização e impressão.
+- **Persistência de dados:** armazenamento local utilizando LocalStorage.
+- **Backup:** exportação e importação de dados em formato JSON.
+- **Interface responsiva:** adaptação para diferentes tamanhos de tela.
 
-## Estrutura
-```
+## Tecnologias utilizadas
+
+- HTML5
+- CSS3
+- JavaScript puro (Vanilla JavaScript)
+- LocalStorage
+- SVG para elementos gráficos e ícones.
+
+O projeto não utiliza frameworks ou bibliotecas externas.
+
+## Estrutura do projeto
+
+```text
 FreelaFlow/
 ├── index.html
-├── css/style.css
-├── js/app.js
-├── assets/favicon.svg
+├── css/
+│   └── style.css
+├── js/
+│   └── app.js
+├── assets/
+│   └── favicon.svg
 └── README.md
 ```
 
 ## Como executar
-Abra o `index.html` no navegador ou use uma extensão como Live Server. Não há instalação nem build.
+
+1. Clone ou baixe este repositório.
+2. Abra a pasta do projeto.
+3. Abra o arquivo `index.html` no navegador.
+
+Também é possível utilizar a extensão Live Server no Visual Studio Code.
+
+Não é necessária instalação de dependências ou processo de build.
 
 ## Publicação no GitHub Pages
-1. Crie um repositório e envie os arquivos na raiz.
-2. Em **Settings → Pages**, escolha **Deploy from a branch**, a branch `main` e a pasta `/ (root)`.
-3. Aguarde alguns minutos e acesse `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`.
 
-## Qualidade
-Escape de HTML em todo conteúdo digitado (prevenção de XSS), validação de formulários, tratamento de erros no LocalStorage, navegação por teclado, `aria-label` no gráfico e `prefers-reduced-motion`.
+O projeto pode ser publicado gratuitamente utilizando o GitHub Pages.
+
+1. Acesse as configurações do repositório.
+2. Entre em Settings → Pages.
+3. Selecione Deploy from a branch.
+4. Escolha a branch `main` e a pasta `/ (root)`.
+5. Salve as configurações e aguarde a publicação.
+
+## Segurança e qualidade
+
+A versão atual possui:
+
+- Escape de conteúdo HTML inserido pelo usuário.
+- Validação de formulários.
+- Tratamento de erros no LocalStorage.
+- Navegação por teclado.
+- Atributos de acessibilidade, incluindo `aria-label`.
+- Respeito à preferência `prefers-reduced-motion`.
 
 ## Testes realizados
-A versão atual foi testada em Chromium (Playwright) com 79 verificações automatizadas: navegação, CRUD de clientes/projetos/propostas, pesquisa e filtros, validações, cálculos do orçamento, persistência após recarregar, dados corrompidos no LocalStorage, tentativa de XSS, sincronização entre abas, impressão (PDF) e layouts de 320 px, 360 px e desktop. Não foram testados Safari, Firefox nem aparelhos físicos.
 
-## Limitações conhecidas
-- Os dados ficam só neste navegador/dispositivo; limpar os dados do site apaga tudo.
-- Exclusões usam `confirm()` nativo e não podem ser desfeitas.
-- Em modo anônimo o LocalStorage pode não persistir.
-- Os dados ficam armazenados localmente no navegador (LocalStorage), sem sincronização automática entre dispositivos.
+Em 25/11/2026, foram realizados testes funcionais manuais envolvendo:
 
-## Possíveis melhorias
-- Exportar/importar dados em JSON e exportar propostas em PDF.
-- Vincular propostas aprovadas a projetos automaticamente.
-- Campo de pagamentos recebidos para um faturamento realizado.
-- Testes automatizados das funções de cálculo.
-- Exportação de propostas em PDF.
-- Vincular propostas aprovadas aos projetos automaticamente.
-- Campo de pagamentos recebidos para controle do faturamento.
-- Testes automatizados das funções de cálculo.
+- Cadastro, edição e exclusão de clientes.
+- Cadastro, edição e exclusão de projetos.
+- Associação entre projetos e clientes.
+- Cadastro, visualização, edição e exclusão de propostas.
+- Persistência dos dados após atualização da página.
+- Exportação e importação de backups JSON.
+- Conferência dos dados exportados.
+- Verificação dos indicadores do dashboard.
+
+A validação automatizada com Playwright e suas 79 verificações ainda precisa ser documentada e confirmada separadamente.
+
+## Limitações atuais
+
+- Os dados são armazenados exclusivamente no navegador, por meio do LocalStorage.
+- Não existe sincronização automática entre dispositivos.
+- A limpeza dos dados do navegador pode apagar os registros.
+- Não existe autenticação ou gerenciamento de contas de usuários.
+- As exclusões não possuem mecanismo de desfazer.
+- A impressão de propostas utiliza os recursos do próprio navegador.
+
+## Próximas evoluções
+
+O FreelaFlow está sendo planejado para evoluir de uma aplicação local para uma plataforma SaaS.
+
+As melhorias previstas incluem:
+
+- **Infraestrutura:** banco de dados na nuvem, autenticação e sincronização entre dispositivos.
+- **Relacionamentos:** vínculo entre propostas aprovadas e projetos.
+- **Documentos:** geração e exportação de propostas e relatórios em PDF.
+- **Financeiro:** controle de pagamentos, recebimentos, parcelas e valores pendentes.
+- **Dashboard:** indicadores financeiros mais completos.
+- **Automação:** testes automatizados e validações de integração.
+- **Monetização:** planos gratuitos e pagos, assinaturas e integração com provedores de pagamento.
+- **Segurança:** isolamento dos dados dos usuários e políticas de acesso.
+
+## Objetivo do projeto
+
+Construir uma plataforma completa para freelancers, reunindo gestão de clientes, projetos, propostas e finanças em um único ambiente.
+
+**FreelaFlow — Organização para quem trabalha por conta própria.**
